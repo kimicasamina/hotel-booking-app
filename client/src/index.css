@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  #root {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  body {
+    line-height: 1.4;
+    font-weight: 400;
+    color: #242424;
+  }
+
+  img {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@layer components {
+  /* .cards {
+    @apply flex gap-x-4;
+  }
+
+  .card {
+    @apply rounded-lg bg-slate-500 flex flex-col gap-y-2;
+  }
+
+  .cardImg {
+    @apply w-full h-full object-cover;
+    @apply flex;
+  } */
+}
+
+@layer utilities {
+}
