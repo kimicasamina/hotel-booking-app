@@ -1,14 +1,18 @@
 import React from "react";
 import Navbar from "../navbar/Navbar";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <div className="w-full bg-violet-900 mb-20 absolute left-0 right-0 top-0">
       <div className="w-full max-w-[1280px] px-20 mx-auto py-8 pb-24 relative">
         <div className="flex justify-between items-center">
-          <div className="text-xl text-neutral-200 font-semibold items-center">
+          <Link
+            to="/"
+            className="text-xl text-neutral-200 font-semibold items-center"
+          >
             Hotel Booking App
-          </div>
+          </Link>
           <div className="flex items-center justify-end py-4">
             <button className="bg-neutral-200 text-violet-900 p-2 px-4 rounded-sm mx-2 text-sm font-semibold hover:shadow-md">
               Register
