@@ -28,9 +28,7 @@ export default function Hotels() {
 
   async function fetchData() {
     const { data } = await axios.get(
-      `http://localhost:8080/api/hotels?city=${destination}&min=${
-        min || 0
-      }&max=${max || 999}`
+      `/api/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
     );
     setData(data.hotels);
   }
