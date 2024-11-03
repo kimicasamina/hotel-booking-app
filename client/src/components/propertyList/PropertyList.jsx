@@ -20,7 +20,7 @@ export default function PropertyList() {
       setData(data.properties);
     }
 
-    fetchData("/api/hotels/countByType");
+    fetchData("hotels/countByType");
   }, []);
 
   return (
