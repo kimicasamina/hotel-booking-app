@@ -1,18 +1,28 @@
 import { useState } from "react";
 import Home from "./pages/Home";
 import RootLayout from "./layout/RootLayout";
-import { Routes, Route } from "react-router-dom";
+import Hotels from "./pages/Hotels";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/hotels",
+        element: <Hotels />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <>
-      <Routes>
-        <Route path="/" element={<RootLayout />}>
-          <Route path="/" element={<Home />} />
-        </Route>
-      </Routes>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
