@@ -60,7 +60,7 @@ export async function updateHotel(req, res, next) {
   }
 }
 
-export async function deleteHotel(req, res) {
+export async function deleteHotel(req, res, next) {
   try {
     const deletedHotel = await Hotel.findByIdAndDelete(req.params.id);
     res
@@ -71,7 +71,7 @@ export async function deleteHotel(req, res) {
   }
 }
 
-export async function countByCity(req, res) {
+export async function countByCity(req, res, next) {
   const cities = req.query.cities.split(",");
   try {
     // const list = await Promise.all(
