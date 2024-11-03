@@ -15,9 +15,7 @@ export default function Featured() {
       setData(data.cityCount);
     }
 
-    fetchData(
-      "http://localhost:8080/api/hotels/countByCity?cities=berlin,madrid,london"
-    );
+    fetchData("/hotels/countByCity?cities=berlin,madrid,london");
   }, []);
 
   if (!data) {
