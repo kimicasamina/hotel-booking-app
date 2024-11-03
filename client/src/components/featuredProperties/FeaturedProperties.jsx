@@ -9,7 +9,7 @@ export default function FeaturedProperties() {
       setData(data.hotels);
     }
 
-    fetchData("/hotels?featured=true&limit=4");
+    fetchData("/api/hotels?featured=true&limit=4");
   }, []);
 
   console.log("FEATURED PROPERTIES: ", data);
