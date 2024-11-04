@@ -2,7 +2,9 @@ import { useState } from "react";
 import Home from "./pages/Home";
 import RootLayout from "./layout/RootLayout";
 import Hotels from "./pages/Hotels";
+import Hotel from "./pages/Hotel";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
       {
         path: "/hotels",
         element: <Hotels />,
+      },
+      {
+        path: "/hotels/:id",
+        element: <Hotel />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },

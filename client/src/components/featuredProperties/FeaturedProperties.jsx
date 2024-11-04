@@ -9,13 +9,13 @@ export default function FeaturedProperties() {
       setData(data.hotels);
     }
 
-    fetchData("hotels?featured=true&limit=4");
+    fetchData("/api/hotels?featured=true&limit=4");
   }, []);
 
   console.log("FEATURED PROPERTIES: ", data);
 
   return (
-    <div className="w-full h-[350px] flex gap-x-8 py-8">
+    <div className="w-full min-h-[350px] flex gap-x-8 py-8">
       {!data ? (
         "Loading, Please wait..."
       ) : (

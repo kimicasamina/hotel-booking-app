@@ -23,7 +23,7 @@ export async function getHotels(req, res, next) {
 export async function getAHotel(req, res, next) {
   const id = req.params.id;
   try {
-    const hotel = await Hotel.find({ _id: id });
+    const hotel = await Hotel.findById(id);
     res.status(200).json({ hotel });
   } catch (error) {
     next(error);

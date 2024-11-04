@@ -15,7 +15,7 @@ export default function Featured() {
       setData(data.cityCount);
     }
 
-    fetchData("hotels/countByCity?cities=berlin,madrid,london");
+    fetchData("/api/hotels/countByCity?cities=berlin,madrid,london");
   }, []);
 
   if (!data) {
@@ -27,7 +27,7 @@ export default function Featured() {
       {!data ? (
         "Loading, Please wait..."
       ) : (
-        <div className="w-full h-[350px] flex gap-x-8 py-8 ">
+        <div className="w-full min-h-[350px] flex gap-x-8 py-8 ">
           <div className="w-full h-full relative cursor-pointer rounded-xl group">
             <img
               src={citiesThumbnail[0]}

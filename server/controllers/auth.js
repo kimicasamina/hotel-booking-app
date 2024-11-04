@@ -31,7 +31,7 @@ export async function register(req, res, next) {
 
 export async function login(req, res, next) {
   try {
-    const user = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({ username: req.body.username });
     if (!user) {
       return next(createError(404, "User not found"));
     }
@@ -57,9 +57,7 @@ export async function login(req, res, next) {
       httpOnly: true,
       expiresIn: "1h",
     });
-    res
-      .status(200)
-      .json({ message: "User logged in successfully.", user: otherDetails });
+    res.status(200).json({ user: otherDetails });
   } catch (error) {
     console.log(error);
     next(error);

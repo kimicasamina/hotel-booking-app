@@ -28,7 +28,7 @@ export default function Hotels() {
 
   async function fetchData() {
     const { data } = await axios.get(
-      `hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
+      `/api/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
     );
     setData(data.hotels);
   }
@@ -42,7 +42,7 @@ export default function Hotels() {
   return (
     <div className="w-full h-full flex ">
       <div className="bg-violet-500 absolute left-0 right-0 top-0 h-10 "></div>
-      <div className="flex-1 h-[550px] w-[350px] bg-yellow-400 flex flex-col gap-y-4 p-4 mt-14 rounded-md">
+      <div className="h-[550px] max-w-[350px] bg-yellow-400 flex flex-col gap-y-4 p-4 mt-14 rounded-md">
         <h2 className="text-xl font-semibold">Search</h2>
         <div className="flex flex-col gap-y-2">
           <label className="">Destination</label>
@@ -130,7 +130,7 @@ export default function Hotels() {
       {!data && data.length === 0 ? (
         <div>Loading, please wait...</div>
       ) : (
-        <div className="flex flex-col gap-y-10 mt-14 px-4 min-h-[600px] overflow-y-scroll no-scrollbar">
+        <div className="flex-1 flex flex-col gap-y-10 mt-14 px-4 min-h-[600px] overflow-y-scroll no-scrollbar">
           {data.map((item) => (
             <SearchItem item={item} key={item._id} />
           ))}

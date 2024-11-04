@@ -20,11 +20,11 @@ export default function PropertyList() {
       setData(data.properties);
     }
 
-    fetchData("hotels/countByType");
+    fetchData("/api/hotels/countByType");
   }, []);
 
   return (
-    <div className="w-full h-[350px] flex gap-x-8 py-8">
+    <div className="w-full min-h-[350px] flex gap-x-8 py-8">
       {!data
         ? "loading"
         : data &&
