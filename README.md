@@ -1,3 +1,4 @@
 # HOTEL BOOKING APP MERNSTACK
 
-LIVE URL: https://hotel-booking-app-y3jl.onrender.com/
+Hotel booking app website built using ReactJS, Nodejs, Tailwindcss and Mongodb
+LIVE URL: https://hotel-booking-app-fullstack-mern.onrender.com/
