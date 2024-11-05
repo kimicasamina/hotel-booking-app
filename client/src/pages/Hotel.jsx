@@ -5,6 +5,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { SearchContext } from "../context/searchContext";
 import Navbar from "../components/navbar/Navbar";
+import Reserve from "../components/reserve/Reserve";
 
 export default function Hotel() {
   const location = useLocation();
@@ -12,6 +13,8 @@ export default function Hotel() {
   console.log("location:", location);
   console.log("Params:", paramsId);
   const [data, setData] = useState(null);
+  const { dates, options } = useContext(SearchContext);
+  const [open, setOpen] = useState(false);
 
   async function fetchData() {
     const { data } = await axios.get(`/api/hotels/find/${paramsId}`);
@@ -19,7 +22,6 @@ export default function Hotel() {
     setData(data.hotel);
   }
 
-  const { dates, options } = useContext(SearchContext);
   console.log("DATES: ", dates);
 
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
@@ -31,6 +33,11 @@ export default function Hotel() {
 
   const days = dayDifference(dates[0].endDate, dates[0].startDate);
   console.log("DAYS: ", days);
+
+  function handleOnClick() {
+    console.log("RESERVE NOW");
+    setOpen(true);
+  }
 
   useEffect(() => {
     fetchData();
@@ -80,12 +87,16 @@ export default function Hotel() {
               </span>
               <span className="text-3xl font-normal">({days} nights)</span>
             </div>
-            <button className="bg-violet-700 text-neutral-200 font-semibold text-center p-2 rounded-md">
+            <button
+              className="bg-violet-700 text-neutral-200 font-semibold text-center p-2 rounded-md"
+              onClick={handleOnClick}
+            >
               Reserve or Book Now!
             </button>
           </div>
         </div>
       </div>
+      {open ? <Reserve hotel={data} setOpen={setOpen} /> : null}
     </div>
   );
 }

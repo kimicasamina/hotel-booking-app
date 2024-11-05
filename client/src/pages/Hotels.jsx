@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { format } from "date-fns";
@@ -7,6 +7,7 @@ import SearchItem from "../components/searchItem/SearchItem";
 import useFetch from "../hooks/useFetch";
 import Navbar from "../components/navbar/Navbar";
 import axios from "axios";
+import { SearchContext } from "../context/searchContext";
 
 export default function Hotels() {
   const location = useLocation();
@@ -17,12 +18,13 @@ export default function Hotels() {
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
   const [data, setData] = useState([]);
+  const { dispatch } = useContext(SearchContext);
 
   //   const { data, loading, error, reFetch } = useFetch(
   //     `/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
   //   );
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
     fetchData();
   };
 
@@ -39,6 +41,7 @@ export default function Hotels() {
 
   console.log("location:", location);
   console.log("data:", data);
+
   return (
     <div className="w-full h-full flex ">
       <div className="bg-violet-500 absolute left-0 right-0 top-0 h-10 "></div>
